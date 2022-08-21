@@ -2,6 +2,8 @@ import { Injectable, NotFoundException, ParseUUIDPipe } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MovieEntity } from './entity/movie.entity';
+import { CreateMovieDto } from './dto/create-movie.dto';
+import { UpdateMovieDto } from './dto/update-movie.dto';
 
 @Injectable()
 export class MovieService {
@@ -22,11 +24,11 @@ export class MovieService {
 
   }
 
-  async createMovie(data:MovieEntity){
+  async createMovie(data:CreateMovieDto){
     return await this.movieRepository.save(this.movieRepository.create(data));
   }
 
-  async updateMovie(id:string,data:MovieEntity){
+  async updateMovie(id:string,data:UpdateMovieDto){
     const movie = await this.movieRepository.findOneBy({id});
     await this.movieRepository.update(movie,data);
     return data;
