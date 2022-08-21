@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import {ConfigModule,ConfigService} from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { config } from 'dotenv';
+import { MovieController } from './app/movie.controller';
 
 config();
 
