@@ -1,15 +1,18 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { config } from 'dotenv';
+
+config();
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: process.env.PGSQL_HOST,
       port: 5432,
-      username: 'root',
-      password: '12345',
-      database: 'test',
+      username: process.env.USER,
+      password: process.env.PGSQL_PASSWORD,
+      database: process.env.PGSQL_DB,
       entities: [],
       synchronize: true,
     }),
