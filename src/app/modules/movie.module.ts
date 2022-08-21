@@ -1,8 +1,8 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { MovieEntity } from "./entity/movie.entity";
-import { MovieController } from "./movie.controller";
-import { MovieService } from "./movie.service";
+import { MovieEntity } from "../entity/movie.entity";
+import { MovieController } from "../controllers/movie.controller";
+import { MovieService } from "../services/movie.service";
 
 @Module({
     imports:[TypeOrmModule.forFeature([

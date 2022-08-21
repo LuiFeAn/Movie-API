@@ -1,9 +1,9 @@
 import { Injectable, NotFoundException, ParseUUIDPipe } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { MovieEntity } from './entity/movie.entity';
-import { CreateMovieDto } from './dto/create-movie.dto';
-import { UpdateMovieDto } from './dto/update-movie.dto';
+import { MovieEntity } from '../entity/movie.entity';
+import { CreateMovieDto } from '../dto/create-movie.dto';
+import { UpdateMovieDto } from '../dto/update-movie.dto';
 
 @Injectable()
 export class MovieService {

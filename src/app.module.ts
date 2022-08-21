@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
 import {ConfigModule,ConfigService} from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { MovieModule } from './app/movie.module';
+import { MovieModule } from './app/modules/movie.module';
+import { UserModule } from './app/modules/user.module';
 import { config } from 'dotenv';
 
 config();
@@ -22,7 +23,8 @@ config();
         synchronize: true,
       })
     }),
-    MovieModule
+    MovieModule,
+    UserModule
   ],
   controllers: [],
   providers: [],
