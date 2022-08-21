@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException, ParseUUIDPipe, UnauthorizedException } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UserEntity } from '../entity/user.entity';
-import { CreateUserDto } from '../dto/create-user.dto';
+import { UserEntity } from '../entitys/user.entity';
+import { CreateUserDto } from '../dtos/create-user.dto';
 
 @Injectable()
 export class UserService {

@@ -1,7 +1,7 @@
-import { Controller, Get,Post,Put,Delete, Body, ParseUUIDPipe, Param, HttpCode, HttpStatus,ValidationError, NotFoundException,UseGuards } from '@nestjs/common';
+import { Controller, Get,Post,Put,Delete, Body, ParseUUIDPipe, Param, HttpCode, HttpStatus,NotFoundException,UseGuards } from '@nestjs/common';
 import { MovieService } from '../services/movie.service';
-import { CreateMovieDto } from '../dto/create-movie.dto';
-import { UpdateMovieDto } from '../dto/update-movie.dto';
+import { CreateMovieDto } from '../dtos/create-movie.dto';
+import { UpdateMovieDto } from '../dtos/update-movie.dto';
 import { AuthGuard } from '@nestjs/passport'
 
 @Controller('movies')
