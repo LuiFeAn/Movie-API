@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import {ConfigModule,ConfigService} from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { MovieModule } from './app/movie.module';
 import { config } from 'dotenv';
-import { MovieController } from './app/movie.controller';
 
 config();
 
@@ -18,10 +18,11 @@ config();
         username: configService.get('PGSQL_USER','root'),
         password: configService.get('PGSQL_PASSWORD','1234'),
         database: configService.get('PGSQL_DB','moviedatabase'),
-        entities: [],
+        entities: [`${__dirname}/**/*.entity{.js,.ts}`],
         synchronize: true,
       })
     }),
+    MovieModule
   ],
   controllers: [],
   providers: [],

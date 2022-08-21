@@ -1,4 +1,4 @@
-import { Controller, Get,Post,Put,Delete } from '@nestjs/common';
+import { Controller, Get,Post,Put,Delete, Body, ParseUUIDPipe, Param, HttpCode, HttpStatus } from '@nestjs/common';
 import { MovieService } from './movie.service';
 
 @Controller('movies')
@@ -6,28 +6,29 @@ export class MovieController {
   constructor(private readonly movieService: MovieService) {}
 
   @Get()
-  index(): string {
-    return this.movieService.getAllMovies();
+  async index() {
+    return await this.movieService.getAllMovies();
   }
 
   @Get(':id')
-  show(): string {
-    return this.movieService.getOneMovie();
+  async show(@Param('id', new ParseUUIDPipe()) id: string) {
+    return await this.movieService.getMovie(id);
   }
 
   @Post()
-  create(): string {
-    return this.movieService.createMovie();
+  async create(@Body() body) {
+    return await this.movieService.createMovie(body);
   }
 
   @Put(':id')
-  update(): string {
-    return this.movieService.updateMovie();
+  async update(@Param('id', new ParseUUIDPipe()) id: string,@Body() body) {
+    return await this.movieService.updateMovie(id,body);
   }
 
   @Delete(':id')
-  delete(): string {
-    return this.movieService.deleteMovie();
+  @HttpCode(HttpStatus.NO_CONTENT)
+  async delete(@Param('id', new ParseUUIDPipe()) id: string) {
+    await this.movieService.deleteMovie(id)
   }
 
 }

@@ -1,28 +1,45 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException, ParseUUIDPipe } from '@nestjs/common';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
+import { MovieEntity } from './entity/movie.entity';
 
 @Injectable()
 export class MovieService {
 
-  getAllMovies(): string {
-    return 'Todos os filmes';
+  constructor(@InjectRepository(MovieEntity) private readonly movieRepository: Repository<MovieEntity>){}
+
+  async getAllMovies(){
+    return await this.movieRepository.find();
   }
 
-  getOneMovie(): string {
-    return 'Apenas um filme'
+  async getMovie(id:string){
+    
+    try{
+        return await this.movieRepository.findOneByOrFail({id})
+    }catch(err){
+        throw new NotFoundException(err.message);
+    }
+
   }
 
-  createMovie(): string {
-    return 'Cria um filme'
+  async createMovie(data:MovieEntity){
+    return await this.movieRepository.save(this.movieRepository.create(data));
   }
 
-  updateMovie(): string {
-    return 'Atualiza um filme'
+  async updateMovie(id:string,data:MovieEntity){
+    const movie = await this.movieRepository.findOneBy({id});
+    await this.movieRepository.update(movie,data);
+    return data;
   }
 
-  deleteMovie(): string {
-    return 'Deleta um filme'
+  async deleteMovie(id:string){
+    
+    try{
+      await this.movieRepository.findOneByOrFail({id})
+      await this.movieRepository.delete({id});
+    }catch(err){
+        throw new NotFoundException(err.message);
+    }
   }
-
-
 
 }
