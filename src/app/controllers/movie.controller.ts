@@ -1,9 +1,11 @@
-import { Controller, Get,Post,Put,Delete, Body, ParseUUIDPipe, Param, HttpCode, HttpStatus,ValidationError, NotFoundException } from '@nestjs/common';
+import { Controller, Get,Post,Put,Delete, Body, ParseUUIDPipe, Param, HttpCode, HttpStatus,ValidationError, NotFoundException,UseGuards } from '@nestjs/common';
 import { MovieService } from '../services/movie.service';
 import { CreateMovieDto } from '../dto/create-movie.dto';
 import { UpdateMovieDto } from '../dto/update-movie.dto';
+import { AuthGuard } from '@nestjs/passport'
 
 @Controller('movies')
+@UseGuards(AuthGuard('jwt'))
 export class MovieController {
   constructor(private readonly movieService: MovieService) {}
 

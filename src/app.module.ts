@@ -3,12 +3,11 @@ import {ConfigModule,ConfigService} from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MovieModule } from './app/modules/movie.module';
 import { UserModule } from './app/modules/user.module';
-import { config } from 'dotenv';
-
-config();
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     TypeOrmModule.forRootAsync({
       imports:[ConfigModule],
       inject:[ConfigService],
@@ -24,7 +23,8 @@ config();
       })
     }),
     MovieModule,
-    UserModule
+    UserModule,
+    AuthModule
   ],
   controllers: [],
   providers: [],
