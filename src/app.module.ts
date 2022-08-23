@@ -25,7 +25,7 @@ import * as redisStore from 'cache-manager-redis-store';
         password: configService.get('PGSQL_PASSWORD','1234'),
         database: configService.get('PGSQL_DB','moviedatabase'),
         entities: [`${__dirname}/**/*.entity{.js,.ts}`],
-        synchronize: true,
+        URL: configService.get('DATABASE_URL','localhost')
       })
     }),
     MovieModule,
