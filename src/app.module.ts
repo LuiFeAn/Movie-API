@@ -12,6 +12,7 @@ import * as redisStore from 'cache-manager-redis-store';
   imports: [
     CacheModule.register({
       isGlobal:true,
+      store:redisStore
     }),
     ConfigModule.forRoot(),
     TypeOrmModule.forRootAsync({
