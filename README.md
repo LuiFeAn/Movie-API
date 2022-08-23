@@ -22,52 +22,8 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## INFORMAÇÕES
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
-```bash
-$ npm install
-```
-
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+Comecei a aprender sobre nestJs e TypeOrm (Usava Express e Querys feitas manualmente) durante a criação desta API, pois até então nunca havia criado uma API REST com estes frameworks e confesso que gostei muito.
+Até então, não tive muitas dificuldades - Após entender os conceitos e paradigmas desta ferramenta, para implementar alguns conhecimentos e conceitos que eu já contia utilizando apenas o express, como: autenticação com JWT token,rotas,recursos,controllers,repositories e afins. Minha maior dificuldade, sem dúvidas, foi em implementar o Redis, pois nunca havia trabalhado com o conceito de cache nas minhas aplicações.
+No mais, agradeço a oportunidade de ter participado deste teste, pois sem dúvidas agregou muito aos meus conhcimentos de desenvolvimento web.

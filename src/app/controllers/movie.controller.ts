@@ -4,6 +4,7 @@ import { ApiTags,ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { CreateMovieDto } from '../dtos/create-movie.dto';
 import { UpdateMovieDto } from '../dtos/update-movie.dto';
 import { AuthGuard } from '@nestjs/passport'
+import { CacheKey } from '@nestjs/common';
 
 @Controller('movies')
 @ApiTags('Movies')
@@ -12,6 +13,7 @@ export class MovieController {
   constructor(private readonly movieService: MovieService) {}
 
   @Get()
+  @CacheKey('movies')
   @ApiOperation({summary:'Obtém o registro de todos os filmes'})
   @ApiResponse({status:401,description:'Não possui autorização para obter todos os filmes'})
   @ApiResponse({status:200,description:'Obteve todos os filmes com sucesso'})
@@ -20,6 +22,7 @@ export class MovieController {
   }
 
   @Get(':id')
+  @CacheKey('movies')
   @ApiOperation({summary:'Obtém o registro de um único filme através do UUID'})
   @ApiResponse({status:401,description:'Não possui autorização para obter um filme'})
   @ApiResponse({status:200,description:'Obteve um filme com sucesso'})

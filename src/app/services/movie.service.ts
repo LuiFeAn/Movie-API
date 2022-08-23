@@ -1,23 +1,26 @@
-import { Injectable, NotFoundException, ParseUUIDPipe } from '@nestjs/common';
+import { CACHE_MANAGER, Inject, Injectable, NotFoundException, ParseUUIDPipe } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MovieEntity } from '../entitys/movie.entity';
 import { CreateMovieDto } from '../dtos/create-movie.dto';
 import { UpdateMovieDto } from '../dtos/update-movie.dto';
+import { Cache } from 'cache-manager';
 
 @Injectable()
 export class MovieService {
 
-  constructor(@InjectRepository(MovieEntity) private readonly movieRepository: Repository<MovieEntity>){}
+  constructor(@InjectRepository(MovieEntity) private readonly movieRepository: Repository<MovieEntity>,@Inject(CACHE_MANAGER) private readonly cachedManager:Cache){}
 
   async getAllMovies(){
-    return await this.movieRepository.find();
+    await this.cachedManager.set('all_movies',await this.movieRepository.find());
+    return await this.cachedManager.get('all_movies')
   }
 
   async getMovie(id:string){
     
     try{
-        return await this.movieRepository.findOneByOrFail({id})
+        await this.cachedManager.set('movie',await this.movieRepository.findOneByOrFail({id}));
+        return await this.cachedManager.get('movie');
     }catch(err){
         throw new NotFoundException(err.message);
     }
