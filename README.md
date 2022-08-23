@@ -26,13 +26,21 @@
 
 ## INFORMAÇÕES
 
-Comecei a aprender sobre nestJs e TypeOrm (Usava Express e Querys feitas manualmente) durante a criação desta API, pois até então nunca havia criado uma API REST com estes frameworks e confesso que gostei muito.
+Processo:
 
-Até então, não tive muitas dificuldades - Após entender os conceitos e paradigmas desta ferramenta, para implementar alguns conhecimentos e conceitos que eu já contia utilizando apenas o express, como: autenticação com JWT token,rotas,recursos,controllers,repositories e afins. Minha maior dificuldade, sem dúvidas, foi em implementar o Redis, pois nunca havia trabalhado com o conceito de cache nas minhas aplicações.
+Comecei a aprender sobre NestJs e TypeOrm (Usava Express e Querys feitas manualmente) durante a criação desta API, pois até então nunca havia criado uma API REST com estes frameworks e confesso que gostei muito.
 
-No mais, agradeço a oportunidade de ter participado deste teste, pois sem dúvidas agregou muito aos meus conhcimentos de desenvolvimento web.
+Dificuldades:
+
+Até então, não tive muitas dificuldades - Após entender os conceitos e paradigmas desta ferramenta, para implementar alguns conhecimentos e conceitos que eu já contia utilizando apenas o express, como: JWT,Rotas,Recursos,Controllers,Repositories e afins. 
+Minha maior dificuldade, sem dúvidas, foi em implementar o Redis, pois nunca havia trabalhado com o conceito de cache nas minhas aplicações.
+
+Considerações:
+
+No mais, agradeço a oportunidade de ter participado deste teste, pois sem dúvidas agregou muito aos meus conhcimentos de desenvolvimento web =)
 
 ## Instalação
 
 `npm install` : Instalar dependências
-`npm run start:dev`: Inciar o servidor
+
+`npm run start:dev`: Inciar o servidor de desenvolvimento
