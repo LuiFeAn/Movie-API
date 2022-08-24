@@ -44,3 +44,9 @@ No mais, agradeço a oportunidade de ter participado deste teste, pois sem dúvi
 `npm install` : Instalar dependências
 
 `npm run start:dev`: Inciar o servidor de desenvolvimento
+
+## Deploy
+
+Heorku:
+
+https://movies-api-v2.herokuapp.com/documentation
